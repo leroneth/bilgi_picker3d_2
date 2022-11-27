@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
-public class OnLevelDestroyerCommand : MonoBehaviour
+namespace Commands
 {
-    // Start is called before the first frame update
-    void Start()
+    public class OnLevelDestroyerCommand : ICommand
     {
-        
-    }
+        private Transform _levelHolder;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public OnLevelDestroyerCommand(Transform levelHolder)
+        {
+            _levelHolder = levelHolder;
+        }
+
+        public void Execute()
+        {
+            Object.Destroy(_levelHolder.GetChild(0).gameObject);
+        }
+
+        public void Execute(int value)
+        {
+            
+        }
     }
 }

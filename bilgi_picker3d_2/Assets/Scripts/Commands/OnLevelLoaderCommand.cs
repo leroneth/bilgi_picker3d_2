@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
+using ICommand = System.Windows.Input.ICommand;
 
-public class OnLevelLoaderCommand : MonoBehaviour
+namespace Command
 {
-    // Start is called before the first frame update
-    void Start()
+    public class OnLevelLoaderCommand : ICommand
     {
-        
-    }
+        private Transform _levelHolder;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public OnLevelLoaderCommand(Transform levelHolder)
+        {
+            _levelHolder = levelHolder;
+        }
+
+        public void Execute()
+        {
+        }
+
+        public void Execute(int levelID)
+        {
+            Object.Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level{levelID}"), _levelHolder);
+        }
     }
 }
