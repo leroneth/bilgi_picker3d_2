@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Data.ValuableObjects
+namespace Data.ValueObjects
 {
     [Serializable]
     public class LevelData

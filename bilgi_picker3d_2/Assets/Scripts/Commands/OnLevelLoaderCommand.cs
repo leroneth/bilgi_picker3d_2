@@ -1,8 +1,7 @@
 using Interfaces;
 using UnityEngine;
-using ICommand = System.Windows.Input.ICommand;
 
-namespace Command
+namespace Commands
 {
     public class OnLevelLoaderCommand : ICommand
     {
